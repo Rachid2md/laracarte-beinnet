@@ -2,13 +2,13 @@
 if (! function_exists('page_title')) {
 	function page_title($title)
 	{
-		$base_title = 'Laracarte BeInNet';
+		$baseTitle = 'Laracarte BeInNet';
 		
 		if ($title == '') {
-			return $base_title;
+			return $baseTitle;
 		}
 		else{
-			return $title . '-' .$base_title;
+			return $title . '-' .$baseTitle;
 		}
 	}
 }
