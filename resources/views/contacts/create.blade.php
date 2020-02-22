@@ -8,21 +8,25 @@
 		<div class="col-md-8 col-sm-8">
 			<h1>Get In Touch</h1>
 			<p class="text-muted">If you having trouble with this service, please ask <a href="mailto:rachid2md@gmail.com">for help</a></p>
-			<form action="" method="POST">
+			<form action="{{ route('contact_path') }}" method="POST">
+				{{ csrf_field() }}
 				<div class="form-group">
-					<label for="name" class="control-label">aaa</label>
-					<input required="" id="name" type="text" class="form-control" name="name">
+					<label for="name" class="control-label {{ $errors->has('name') ? 'text-danger' : '' }}">Name</label>
+					<input required="" id="name" type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" name="name">
+					{!! $errors->first('name', '<span class="help-block invalid-feedback">:message</span>') !!}
 				</div>
 				<div class="form-group">
-					<label for="email" class="control-label">aaa</label>
-					<input required="" id="email" type="email" class="form-control" name="email">
+					<label for="email" class="control-label {{ $errors->has('email') ? 'text-danger' : '' }}">Email</label>
+					<input required="" id="email" type="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" name="email">
+					{!! $errors->first('email', '<span class="help-block invalid-feedback">:message</span>') !!}
 				</div>
 				<div class="form-group">
-					<label for="message" class="control-label">aaa</label>
-					<textarea required="" id="message" class="form-control" rows="10"></textarea>
+					<label for="message" class="control-label sr-only {{ $errors->has('message') ? 'text-danger' : '' }}">Message</label>
+					<textarea required="" id="message" class="form-control {{ $errors->has('message') ? 'is-invalid' : '' }}" rows="10"></textarea>
+					{!! $errors->first('message', '<span class="help-block invalid-feedback">:message</span>') !!}
 				</div>
 				<div class="form-group">
-					<button class="btn btn-primary btn-block">Submit enqury</button>
+					<button name="submit_contact" class="btn btn-primary btn-block">Submit enquiry</button>
 				</div>
 			</form>
 		</div>
