@@ -2,7 +2,7 @@
 if (! function_exists('page_title')) {
 	function page_title($title)
 	{
-		$baseTitle = 'Laracarte BeInNet';
+		$baseTitle = config('app.name') .'BeInNet';
 		
 		if ($title == '') {
 			return $baseTitle;
