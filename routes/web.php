@@ -1,5 +1,5 @@
 <?php
-
+use App\Mail\ContactMessageCreated;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +17,10 @@ Route::get('/', [
 ]);
 
 //Route::name('root_path')->get('/', 'PagesController@home'); Equivaut à ce qui est de la ligne 14 à la ligne 17 mais très simpliste donc moins joli
+
+Route::get('/test-email', function(){
+	return new ContactMessageCreated('Moustapha Diagne', 'rachid2md@gmail.com', 'Merci pour BeInNet' );
+});
 
 Route::get('/about', [
 	'as'=>'about_path',
