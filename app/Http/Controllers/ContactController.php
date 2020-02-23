@@ -18,7 +18,7 @@ class ContactController extends Controller
     {
     	$mailable = new ContactMessageCreated($request->name, $request->email, $request->message);
     	Mail::to(config('laracarte.admin_support_email'))->send($mailable);
-    	Flashy('Nous répondrons sous peu !');
+    	flashy('Nous répondrons sous peu !');
     	return Redirect()->route('root_path');
     } 
 }
